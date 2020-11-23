@@ -19,6 +19,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
     private Button[] mChoiceButton = new Button[4];
     private QuestionAndAnswerList questionAndAnswerList = new QuestionAndAnswerList();
     private QuestionAndAnswer[] questionAndAnswers;
+    private int item = 0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +51,25 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                 questionAndAnswers = questionAndAnswerList.artistCategoryList;
                 break;
         }
-        questionTextView.setText(questionAndAnswers[0].question);
+        newQuestion();
 
+    }
+    public void newQuestion(){
+        questionTextView.setText(questionAndAnswers[item].question);
+        mChoiceButton[0].setText(questionAndAnswers[item].choice1);
+        mChoiceButton[1].setText(questionAndAnswers[item].choice2);
+        mChoiceButton[2].setText(questionAndAnswers[item].choice3);
+        mChoiceButton[3].setText(questionAndAnswers[item].choice4);
     }
     public void onClick(View view){
         Button b = findViewById(view.getId());
+        String str = b.getText().toString();
         AlertDialog.Builder a = new AlertDialog.Builder(StartGameActivity.this);
-        a.setMessage("AAAAA");
+        a.setMessage(str);
         a.setNegativeButton("No", null);
         a.show();
+        item++;
+        if(item < questionAndAnswers.length)
+            newQuestion();
     }
 }
