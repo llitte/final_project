@@ -17,7 +17,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     private TextView questionTextView;
     private Button[] mChoiceButton = new Button[4];
-    private QuestionAndAnswerList questionAndAnswer = new QuestionAndAnswerList();
+    private QuestionAndAnswerList questionAndAnswerList = new QuestionAndAnswerList();
+    private QuestionAndAnswer[] questionAndAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +36,21 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for(int index = 0; index < 4; index++){
             mChoiceButton[index].setOnClickListener(this);
         }
-        QuestionAndAnswer[] animalCategoryList = questionAndAnswer.animalCategoryList;
-        questionTextView.setText(animalCategoryList[0].question);
+        switch (category){
+            case "general":
+                questionAndAnswers = questionAndAnswerList.generalCategoryList;
+                break;
+            case "food":
+                questionAndAnswers = questionAndAnswerList.foodCategoryList;
+                break;
+            case "animal":
+                questionAndAnswers = questionAndAnswerList.animalCategoryList;
+                break;
+            case "artist":
+                questionAndAnswers = questionAndAnswerList.artistCategoryList;
+                break;
+        }
+        questionTextView.setText(questionAndAnswers[0].question);
 
     }
     public void onClick(View view){
