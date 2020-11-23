@@ -1,8 +1,6 @@
 package mongkhonsin.atsadawut.didyouknow.model;
 
 public class QuestionAndAnswerList {
-
-
     static public QuestionAndAnswer[] animalCategoryList = {
             // 1
             new QuestionAndAnswer(

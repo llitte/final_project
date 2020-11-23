@@ -2,14 +2,14 @@ package mongkhonsin.atsadawut.didyouknow.model;
 
 public class QuestionAndAnswer {
 
-    public String question, answer1, answer2 ,answer3, answer4, correctAnswer;
+    public String question, choice1, choice2 ,choice3, choice4, correctAnswer;
 
-    public QuestionAndAnswer(String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer) {
+    public QuestionAndAnswer(String question, String choice1, String choice2, String choice3, String choice4, String correctAnswer) {
         this.question = question;
-        this.answer1 = answer1;
-        this.answer2 = answer2;
-        this.answer3 = answer3;
-        this.answer4 = answer4;
+        this.choice1 = choice1;
+        this.choice2 = choice2;
+        this.choice3 = choice3;
+        this.choice4 = choice4;
         this.correctAnswer = correctAnswer;
     }
 }
