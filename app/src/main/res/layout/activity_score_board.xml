@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D10F51"
+    tools:context=".ScoreBoardActivity">
+
+    <TextView
+        android:id="@+id/best_score_text_view"
+        android:layout_width="380dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="BEST SCORE"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/category_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center"
+        android:text="CATEGORY"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/general_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/score_text_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_id_text_view"
+        app:layout_constraintVertical_bias="0.110000014"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/general_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="GENENAL"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/food_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/category_text_view"
+        app:layout_constraintStart_toStartOf="@+id/category_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/category_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/general_score_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/food_score_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/score_text_view"
+        app:layout_constraintStart_toStartOf="@+id/score_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/score_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/score_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="SCORE"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/general_score_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/category_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/user_id_text_view"
+        app:layout_constraintVertical_bias="0.110000014"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/food_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="FOOD"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/animal_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/general_text_view"
+        app:layout_constraintStart_toStartOf="@+id/general_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/general_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/food_score_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/animal_score_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/general_score_text_view"
+        app:layout_constraintStart_toStartOf="@+id/general_score_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/general_score_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/animal_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="ANIMAL"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/artist_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/food_text_view"
+        app:layout_constraintStart_toStartOf="@+id/food_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/food_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/animal_score_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/artist_score_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/food_score_text_view"
+        app:layout_constraintStart_toStartOf="@+id/food_score_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/food_score_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/artist_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="ARTIST"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/animal_text_view"
+        app:layout_constraintStart_toStartOf="@+id/animal_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/animal_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/artist_score_text_view"
+        android:layout_width="166dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/animal_score_text_view"
+        app:layout_constraintStart_toStartOf="@+id/animal_score_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/animal_score_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/user_id_text_view"
+        android:layout_width="302dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="ID :  XXXXXX"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/best_score_text_view"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
