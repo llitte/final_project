@@ -18,8 +18,6 @@ public class SelectCategoryActivity extends AppCompatActivity {
     private Button animalCategoryButton;
     private Button scoreButton;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -39,6 +39,7 @@ public class ScoreBoardActivity extends AppCompatActivity {
                 AppDatabase db = AppDatabase.getInstance(ScoreBoardActivity.this);
                 User[] user = db.userDao().getAllUsers();
                 User user1 = db.userDao().getUserById(userId);
+                Id.setText("" + user1.userName);
             }
         });
         executors.mainThread().execute(new Runnable() {

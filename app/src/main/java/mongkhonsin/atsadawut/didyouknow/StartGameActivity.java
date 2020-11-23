@@ -1,15 +1,19 @@
 package mongkhonsin.atsadawut.didyouknow;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
 import mongkhonsin.atsadawut.didyouknow.model.QuestionAndAnswer;
-import mongkhonsin.atsadawut.didyouknow.model.QuestionAndAnswerList;
 
-public class StartGameActivity extends AppCompatActivity {
+public class StartGameActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button[] mChoiceButton = new Button[4];
 
 
     @Override
@@ -19,6 +23,13 @@ public class StartGameActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         String category = i.getStringExtra("category");
+        mChoiceButton[0] = findViewById(R.id.choice1_button);
+        mChoiceButton[1] = findViewById(R.id.choice2_button);
+        mChoiceButton[2] = findViewById(R.id.choice3_button);
+        mChoiceButton[3] = findViewById(R.id.choice4_button);
+        for(int index = 0; index < 4; index++){
+            mChoiceButton[index].setOnClickListener(this);
+        }
         QuestionAndAnswer[] animalCategoryList = {
                 // 1
                 new QuestionAndAnswer(
@@ -62,8 +73,12 @@ public class StartGameActivity extends AppCompatActivity {
                         "อุณหภูมร่างกาย")
         };
 
-
-
-
+    }
+    public void onClick(View view){
+        Button b = findViewById(view.getId());
+        AlertDialog.Builder a = new AlertDialog.Builder(StartGameActivity.this);
+        a.setMessage("AAAAA");
+        a.setNegativeButton("No", null);
+        a.show();
     }
 }

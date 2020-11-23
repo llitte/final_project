@@ -9,17 +9,18 @@
 
     <TextView
         android:id="@+id/question_text_view"
-        android:layout_width="369dp"
-        android:layout_height="149dp"
+        android:layout_width="372dp"
+        android:layout_height="117dp"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114"
+        app:layout_constraintVertical_bias="0.177"
         tools:text="question" />
 
     <Button
@@ -28,7 +29,6 @@
         android:layout_height="56dp"
         android:layout_marginBottom="8dp"
         android:background="#D64C20"
-        android:text="answer1"
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/choice2_button"
@@ -37,7 +37,8 @@
         app:layout_constraintStart_toStartOf="@+id/question_text_view"
         app:layout_constraintTop_toBottomOf="@+id/question_text_view"
         app:layout_constraintVertical_bias="0.060000002"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="answer1" />
 
     <Button
         android:id="@+id/choice2_button"
