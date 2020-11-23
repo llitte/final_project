@@ -163,7 +163,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="ARTIST"
+        android:text="ART"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"

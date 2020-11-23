@@ -8,13 +8,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import mongkhonsin.atsadawut.didyouknow.model.QuestionAndAnswer;
+import mongkhonsin.atsadawut.didyouknow.model.QuestionAndAnswerList;
 
 public class StartGameActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private TextView questionTextView;
     private Button[] mChoiceButton = new Button[4];
-
+    private QuestionAndAnswerList questionAndAnswer = new QuestionAndAnswerList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
         Intent i = getIntent();
         String category = i.getStringExtra("category");
+
+        questionTextView = findViewById(R.id.question_text_view);
         mChoiceButton[0] = findViewById(R.id.choice1_button);
         mChoiceButton[1] = findViewById(R.id.choice2_button);
         mChoiceButton[2] = findViewById(R.id.choice3_button);
@@ -30,48 +35,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for(int index = 0; index < 4; index++){
             mChoiceButton[index].setOnClickListener(this);
         }
-        QuestionAndAnswer[] animalCategoryList = {
-                // 1
-                new QuestionAndAnswer(
-                        "สัตว์เลี้ยงลูกด้วยนมที่อยู่ในน้ำ คือข้อใด",
-                        "ปลาหมึก",
-                        "ปลาโลมา",
-                        "ปลากระเบน",
-                        "ปลาไหล",
-                        "ปลาโลมา"),
-                // 2
-                new QuestionAndAnswer(
-                        "สัตว์ในข้อใดจัดเป็นสัตว์เลือดอุ่นทั้งหมด",
-                        "เสือ จระเข้",
-                        "วัว กบ",
-                        "กระรอก เต่า",
-                        "ชะนี นกยูง",
-                        "ชะนี นกยูง"),
-                // 3
-                new QuestionAndAnswer(
-                        "ข้อใดไม่ใช่สัตว์เลี้ยงลูกด้วยนม",
-                        "แมว",
-                        "กิ่งก่า",
-                        "ค้างคาว",
-                        "ปลาพะยูน",
-                        "กิ่งก่า"),
-                // 4
-                new QuestionAndAnswer(
-                        "สัตว์ชนิดใดไม่จัดอยู่ในพวกสัตว์ปีก",
-                        "นกแก้ว",
-                        "ค้างคาว",
-                        "นกขุนทอง",
-                        "นกกระจอกเทศ",
-                        "ค้างคาว"),
-                // 5
-                new QuestionAndAnswer(
-                        "ข้อใดที่เป็นลักษณะเหมือนกับของสัตว์ครึ่งน้ำครึ่งบกและสัตว์เลื้อยคลาน",
-                        "การเคลื่อนที่",
-                        "ลักษณะผิวหนัง",
-                        "ไข่มีเปลือกหุ้มแข็ง",
-                        "อุณหภูมร่างกาย",
-                        "อุณหภูมร่างกาย")
-        };
+        QuestionAndAnswer[] animalCategoryList = questionAndAnswer.animalCategoryList;
+        questionTextView.setText(animalCategoryList[0].question);
 
     }
     public void onClick(View view){
