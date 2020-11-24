@@ -25,7 +25,6 @@ public class ScoreBoardActivity extends AppCompatActivity {
         userId = i.getStringExtra("userId");
 
         Id = findViewById(R.id.user_id_text_view);
-        Id.setText("ID : " + userId);
 
         generalScoreTextView = findViewById(R.id.general_score_text_view);
         foodScoreTextView = findViewById(R.id.food_score_text_view);
@@ -37,9 +36,11 @@ public class ScoreBoardActivity extends AppCompatActivity {
             @Override
             public void run() {
                 AppDatabase db = AppDatabase.getInstance(ScoreBoardActivity.this);
-                User[] user = db.userDao().getAllUsers();
                 User user1 = db.userDao().getUserById(userId);
                 Id.setText("" + user1.userName);
+
+                //db.userDao().updateAnimalScore(userId, count);
+                //animalScoreTextView.setText("" + db.userDao().getUserById(userId).animalCategoryScore);
             }
         });
         executors.mainThread().execute(new Runnable() {

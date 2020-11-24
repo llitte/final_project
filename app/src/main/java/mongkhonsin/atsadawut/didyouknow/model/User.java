@@ -19,10 +19,19 @@ public class User {
     @ColumnInfo(name = "password")
     public final String password;
 
+    public int generalCategoryScore;
+    public int animalCategoryScore;
+    public int artistCategoryScore;
+    public int foodCategoryScore;
+
     public User(int userIdInDatabase, String id, String userName, String password) {
         this.userIdInDatabase = userIdInDatabase;
         this.id = id;
         this.userName = userName;
         this.password = password;
+        this.generalCategoryScore = 0;
+        this.animalCategoryScore = 0;
+        this.artistCategoryScore = 0;
+        this.foodCategoryScore = 0;
     }
 }
