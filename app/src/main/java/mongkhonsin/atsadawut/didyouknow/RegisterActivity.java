@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
                 passwordRegisterStr = passwordRegisterEditText.getText().toString();
                 rePasswordRegisterStr = rePasswordRegisterEditText.getText().toString();
 
+
                 final User user = new User(0, idRegisterStr, usernameRegisterStr, passwordRegisterStr);
                 AppExecutors executors = new AppExecutors();
                 executors.diskIO().execute(new Runnable() {
@@ -48,7 +49,6 @@ public class RegisterActivity extends AppCompatActivity {
                 });
             }
         });
-
 
     }
 }

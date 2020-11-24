@@ -106,6 +106,7 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     finish();
                 }
             });
+
         }
     }
 }
