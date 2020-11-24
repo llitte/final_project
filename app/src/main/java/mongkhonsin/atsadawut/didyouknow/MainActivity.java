@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         executors.diskIO().execute(new Runnable() {
             @Override
             public void run() {
+                accountHaveInDatabase = false;
                 AppDatabase db = AppDatabase.getInstance(MainActivity.this);
                 //final User[] users = db.userDao().getAllUsers();
                 usersClone = db.userDao().getAllUsers();
-
                 executors.mainThread().execute(new Runnable() {
                     @Override
                     public void run() {
@@ -78,10 +78,11 @@ public class MainActivity extends AppCompatActivity {
                             if(id.equals(u.id) && password.equals(u.password))
                                 accountHaveInDatabase = true;
                         }
-                        if(!accountHaveInDatabase)
+                        if(!accountHaveInDatabase){
                             warningTextView.setText("เกิดข้อผิดพลาด กรุณาลองอีกครั้ง");
+                        }
                         else{
-                            Intent i = new Intent(MainActivity.this, SelectCategoryActivity.class);
+                            Intent i = new Intent(MainActivity.this, MenuActivity.class);
                             i.putExtra("userId", id);
                             startActivity(i);
                         }
