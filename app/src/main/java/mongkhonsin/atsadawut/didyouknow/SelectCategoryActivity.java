@@ -30,7 +30,7 @@ public class SelectCategoryActivity extends AppCompatActivity {
         generalCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentToStartGame("general");
+                intentToStartGame("general", userId);
             }
         });
 
@@ -38,7 +38,7 @@ public class SelectCategoryActivity extends AppCompatActivity {
         foodCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentToStartGame("food");
+                intentToStartGame("food", userId);
             }
         });
 
@@ -46,7 +46,7 @@ public class SelectCategoryActivity extends AppCompatActivity {
         artistCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentToStartGame("artist");
+                intentToStartGame("artist", userId);
             }
         });
 
@@ -54,7 +54,7 @@ public class SelectCategoryActivity extends AppCompatActivity {
         animalCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentToStartGame("animal");
+                intentToStartGame("animal", userId);
             }
         });
 
@@ -67,11 +67,11 @@ public class SelectCategoryActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
-    public void intentToStartGame(String category){
+    public void intentToStartGame(String category, String userId){
         Intent i = new Intent(SelectCategoryActivity.this, StartGameActivity.class);
         i.putExtra("category", category);
+        i.putExtra("userId", userId);
         startActivity(i);
     }
 }
