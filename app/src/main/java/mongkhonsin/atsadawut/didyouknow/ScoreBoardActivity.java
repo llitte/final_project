@@ -36,7 +36,7 @@ public class ScoreBoardActivity extends AppCompatActivity {
             @Override
             public void run() {
                 AppDatabase db = AppDatabase.getInstance(ScoreBoardActivity.this);
-                IdTextView.setText("" + db.userDao().getUserById(userId).userName);
+                IdTextView.setText("ชื่อ : " + db.userDao().getUserById(userId).userName);
                 animalScoreTextView.setText("" + db.userDao().getUserById(userId).animalCategoryScore);
                 foodScoreTextView.setText("" + db.userDao().getUserById(userId).foodCategoryScore);
                 artistScoreTextView.setText("" + db.userDao().getUserById(userId).artistCategoryScore);

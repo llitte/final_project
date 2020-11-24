@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 AppDatabase db = AppDatabase.getInstance(MainActivity.this);
-                final User[] users = db.userDao().getAllUsers();
+                //final User[] users = db.userDao().getAllUsers();
                 usersClone = db.userDao().getAllUsers();
 
                 executors.mainThread().execute(new Runnable() {
@@ -69,17 +69,17 @@ public class MainActivity extends AppCompatActivity {
                 password = passwordEditText.getText().toString();
 
                 if(id.equals("") || password.equals(""))
-                    warningTextView.setText("Please, enter id and password");
+                    warningTextView.setText("กรุณากรอก ไอดีและ พาสเวิร์ด");
                 else {
                     if(usersClone.length == 0)
-                        warningTextView.setText("Incorrect, please try again");
+                        warningTextView.setText("เกิดข้อผิดพลาด กรุณาลองอีกครั้ง");
                     else{
                         for(User u: usersClone){
                             if(id.equals(u.id) && password.equals(u.password))
                                 accountHaveInDatabase = true;
                         }
                         if(!accountHaveInDatabase)
-                            warningTextView.setText("Incorrect, please try again");
+                            warningTextView.setText("เกิดข้อผิดพลาด กรุณาลองอีกครั้ง");
                         else{
                             Intent i = new Intent(MainActivity.this, SelectCategoryActivity.class);
                             i.putExtra("userId", id);

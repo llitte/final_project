@@ -12,11 +12,7 @@ import mongkhonsin.atsadawut.didyouknow.util.AppExecutors;
 
 public class SelectCategoryActivity extends AppCompatActivity {
 
-    private Button generalCategoryButton;
-    private Button foodCategoryButton;
-    private Button artistCategoryButton;
-    private Button animalCategoryButton;
-    private Button scoreButton;
+    private Button generalCategoryButton, foodCategoryButton, artistCategoryButton, animalCategoryButton, scoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
