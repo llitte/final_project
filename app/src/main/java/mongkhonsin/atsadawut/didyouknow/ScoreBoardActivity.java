@@ -13,7 +13,11 @@ import mongkhonsin.atsadawut.didyouknow.util.AppExecutors;
 
 public class ScoreBoardActivity extends AppCompatActivity {
 
-    private TextView IdTextView, generalScoreTextView, foodScoreTextView, artistScoreTextView, animalScoreTextView;
+    private TextView IdTextView;
+    private TextView generalScoreTextView;
+    private TextView foodScoreTextView;
+    private TextView artistScoreTextView;
+    private TextView animalScoreTextView;
     private String userId = "";
 
     @Override
@@ -38,10 +42,10 @@ public class ScoreBoardActivity extends AppCompatActivity {
                 // เรียกใช้ฐานข้อมูล เพือ แสดงคะแนน ของผู้เล่น โดยใช้ id ของ user
                 AppDatabase db = AppDatabase.getInstance(ScoreBoardActivity.this);
                 IdTextView.setText("ชื่อ : " + db.userDao().getUserById(userId).userName);
-                animalScoreTextView.setText("" + db.userDao().getUserById(userId).animalCategoryScore);
-                foodScoreTextView.setText("" + db.userDao().getUserById(userId).foodCategoryScore);
-                artistScoreTextView.setText("" + db.userDao().getUserById(userId).artistCategoryScore);
-                generalScoreTextView.setText("" + db.userDao().getUserById(userId).generalCategoryScore);
+                animalScoreTextView.setText(""+db.userDao().getUserById(userId).animalCategoryScore);
+                foodScoreTextView.setText(""+db.userDao().getUserById(userId).foodCategoryScore);
+                artistScoreTextView.setText(""+db.userDao().getUserById(userId).artistCategoryScore);
+                generalScoreTextView.setText(""+db.userDao().getUserById(userId).generalCategoryScore);
             }
         });
         executors.mainThread().execute(new Runnable() {
