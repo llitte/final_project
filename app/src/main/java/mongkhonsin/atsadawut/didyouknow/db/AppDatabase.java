@@ -11,6 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import mongkhonsin.atsadawut.didyouknow.model.User;
 import mongkhonsin.atsadawut.didyouknow.util.AppExecutors;
 
+// class ที่จัดการฐานข้อมูล
 @Database(entities = {User.class}, exportSchema = false, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String TAG = "AppDatabase";

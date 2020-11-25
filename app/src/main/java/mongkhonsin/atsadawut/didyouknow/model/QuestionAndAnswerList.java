@@ -1,5 +1,7 @@
 package mongkhonsin.atsadawut.didyouknow.model;
 
+
+// class ชุดของคำถาม
 public class QuestionAndAnswerList {
     static public QuestionAndAnswer[] animalCategoryList = {
             // 1

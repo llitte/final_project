@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+// class ข้อมูลของ user
 @Entity(tableName = "users")
 public class User {
 

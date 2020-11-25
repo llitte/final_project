@@ -32,16 +32,19 @@ public class RegisterActivity extends AppCompatActivity {
         passwordRegisterEditText = findViewById(R.id.password_register_edit_text);
         rePasswordRegisterEditText = findViewById(R.id.re_password_register_edit_text);
         warningRegisterTextView = findViewById(R.id.warning_register_text_view);
-
         createAccountButton = findViewById(R.id.create_acc_button);
+
+        // ปุ่มสร้างบัญชี
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 idRegisterStr = idRegisterEditText.getText().toString();
                 usernameRegisterStr = usernameRegisterEditText.getText().toString();
                 passwordRegisterStr = passwordRegisterEditText.getText().toString();
                 rePasswordRegisterStr = rePasswordRegisterEditText.getText().toString();
 
+                // ตรวจสอบข้อมูลการลงทะเบียน
                 if (idRegisterStr.equals("") || usernameRegisterStr.equals("") || rePasswordRegisterStr.equals("") || passwordRegisterStr.equals("")){
                     warningRegisterTextView.setText("กรุณากรอกข้อมูลให้ครบ");
                 }
@@ -49,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                     warningRegisterTextView.setText("ขออภัย, พาสเวิร์ดไม่ตรงกัน");
                 }
                 else{
-                    final User user = new User(0, idRegisterStr, usernameRegisterStr, passwordRegisterStr);
+                    // เมื่อตรวจสอบผ่านมาระดับหนึ่ง เรียกใช้ฐานข้อมูล เพื่อมาตรวจสอบว่ามีการลงทะเบียนซ้ำหรือไม่ ก่อนสร้างบัญชี แล้วเก็บลงฐานข้อมูล
                     AppExecutors executors = new AppExecutors();
                     executors.diskIO().execute(new Runnable() {
                         @Override
@@ -65,15 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 idAlreadyUsed = false;
                             }
                             else{
+                                final User user = new User(0, idRegisterStr, usernameRegisterStr, passwordRegisterStr);
                                 db.userDao().addUser(user);
                                 finish();
                             }
-                        }
-                    });
-                    executors.mainThread().execute(new Runnable() {
-                        @Override
-                        public void run() {
-
                         }
                     });
                 }

@@ -42,6 +42,8 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
         for(int index = 0; index < 4; index++){
             mChoiceButton[index].setOnClickListener(this);
         }
+
+        // switch case ใช้เรียก ชุดของคำถาม ให้ตรงกับที่ผู้เล่น เลือกหมวดมา
         switch (category){
             case "general":
                 questionAndAnswers = questionAndAnswerList.generalCategoryList;
@@ -60,26 +62,38 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
 
     }
     public void newQuestion(){
+
         questionTextView.setText(questionAndAnswers[count].question);
         mChoiceButton[0].setText(questionAndAnswers[count].choice1);
         mChoiceButton[1].setText(questionAndAnswers[count].choice2);
         mChoiceButton[2].setText(questionAndAnswers[count].choice3);
         mChoiceButton[3].setText(questionAndAnswers[count].choice4);
     }
+
     public void onClick(View view){
+
         Button userAnswerButton = findViewById(view.getId());
         String userAnswer = userAnswerButton.getText().toString();
+
+        // ตรวจสอบคำตอบที่ผู้เล่นตอบมา ถ้าถูกต้อง ให้เพิ่มคะแนน
         if(userAnswer.equals(questionAndAnswers[count].correctAnswer))
             score++;
+
         count++;
+
+        // ถ้าคำถามยังไม่ครบ 5 ข้อ ให้แสดงคำถามต่อไป
         if(count < questionAndAnswers.length)
             newQuestion();
         else{
+
+            // เมื่อตอบคำถามครบ 5 ข้อ เรียกใช้ฐานข้อมูล เพิ่อ update คะแนน
             final AppExecutors executors = new AppExecutors();
             executors.diskIO().execute(new Runnable() {
                 @Override
                 public void run() {
                     AppDatabase db = AppDatabase.getInstance(StartGameActivity.this);
+
+                    // switch case ใช้ update คะแนนให้ตรงกับหมวดที่ผู้เล่น เลือกมา, จะ update คะแนนที่ดีที่สุด
                     switch (category){
                         case "general":
                             if(score > db.userDao().getUserById(userId).generalCategoryScore)
@@ -106,7 +120,6 @@ public class StartGameActivity extends AppCompatActivity implements View.OnClick
                     finish();
                 }
             });
-
         }
     }
 }

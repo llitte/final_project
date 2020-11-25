@@ -17,13 +17,17 @@ public class HowToPlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_to_play);
 
+
         howToPlayTextView = findViewById(R.id.how_to_play_text_view);
+        backButton = findViewById(R.id.back_button);
+
         howToPlayTextView.setText("วิธีการเล่น : กด เล่นเกม เพื่อเลือกหมวด คำถาม แล้วเลือกข้อที่ถูกที่สุด คำถาม มีทั้งหมด 5 ข้อ ในแต่ละหมวด");
 
-        backButton = findViewById(R.id.back_button);
+        // ปุ่ม กลับ
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // ปิดหน้านี้แล้วกลับไปยังหน้าเมนู
                 finish();
             }
         });

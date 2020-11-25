@@ -1,5 +1,6 @@
 package mongkhonsin.atsadawut.didyouknow.model;
 
+// class ส่วนประกอบของคำถาม 1 ข้อ
 public class QuestionAndAnswer {
 
     public String question, choice1, choice2 ,choice3, choice4, correctAnswer;

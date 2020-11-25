@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        // เรียกใช้ฐานข้อมูล
         final AppExecutors executors = new AppExecutors();
         executors.diskIO().execute(new Runnable() {
             @Override
@@ -49,25 +50,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Button
         registerButton = findViewById(R.id.register_button);
         loginButton = findViewById(R.id.login_button);
-
-        //Edit Text
         idEditText = findViewById(R.id.id_login_edit_text);
         passwordEditText = findViewById(R.id.password_login_edit_text);
-
-        //Text View
         warningTextView = findViewById(R.id.warning_login_text_view);
 
+        // ปุ่ม ล็อกอิน
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //set string id and password from edit text
                 id = idEditText.getText().toString();
                 password = passwordEditText.getText().toString();
 
+                // ตรวจสอบช่องกรอก id และ password ก่อน login
                 if(id.equals("") || password.equals(""))
                     warningTextView.setText("กรุณากรอก ไอดีและ พาสเวิร์ด");
                 else {
@@ -82,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                             warningTextView.setText("เกิดข้อผิดพลาด กรุณาลองอีกครั้ง");
                         }
                         else{
+                            // ตรวจสอบแล้วว่า id และ password ถูกต้อง ทำการไปหน้าเมนูเกม พร้อมส่ง id ของ user
                             Intent i = new Intent(MainActivity.this, MenuActivity.class);
                             i.putExtra("userId", id);
                             startActivity(i);
@@ -91,16 +89,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // ปุ่ม ลงทะเบียน
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // ไปหน้าลงทะเบียน
                 Intent i = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
         });
-
-
-
 
     }
     public void setEmptyText(){

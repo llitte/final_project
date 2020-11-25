@@ -23,7 +23,6 @@ public class ScoreBoardActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         userId = i.getStringExtra("userId");
-        //count++;
 
         IdTextView = findViewById(R.id.user_id_text_view);
         generalScoreTextView = findViewById(R.id.general_score_text_view);
@@ -35,6 +34,8 @@ public class ScoreBoardActivity extends AppCompatActivity {
         executors.diskIO().execute(new Runnable() {
             @Override
             public void run() {
+
+                // เรียกใช้ฐานข้อมูล เพือ แสดงคะแนน ของผู้เล่น โดยใช้ id ของ user
                 AppDatabase db = AppDatabase.getInstance(ScoreBoardActivity.this);
                 IdTextView.setText("ชื่อ : " + db.userDao().getUserById(userId).userName);
                 animalScoreTextView.setText("" + db.userDao().getUserById(userId).animalCategoryScore);
